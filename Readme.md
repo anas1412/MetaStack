@@ -1,7 +1,7 @@
 # MetaStack 🚀
 
 <p align="center">
-    <img src="/public/images/MetaStack.png" alt="MetaStack Screenshot" height="200px" width="200px">
+    <img src="/public/images/logo.png" alt="MetaStack Screenshot" height="200px" width="200px">
 </p>
 
 **MetaStack** is a modern, production-ready starter template for building web applications. It combines popular technologies like **MongoDB**, **ExpressJS**, **TailwindCSS**, and **AlpineJS** to provide a seamless development experience. Whether you're building a simple website or a complex web app, this boilerplate has you covered.
