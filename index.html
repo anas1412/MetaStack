@@ -379,6 +379,7 @@
           <div class="flex justify-center items-center space-x-4">
             <div
               class="bg-card p-4 rounded-lg shadow-lg flex items-center w-full max-w-lg"
+              x-data="{ copied: false }"
             >
               <input
                 type="text"
@@ -388,10 +389,14 @@
                 class="bg-transparent text-text flex-grow outline-none"
               />
               <button
-                onclick="copyCloneCommand()"
+                @click="
+          navigator.clipboard.writeText('git clone https://github.com/anas1412/MetaStack.git');
+          copied = true;
+          setTimeout(() => copied = false, 3000);
+        "
                 class="bg-primary text-secondary px-4 py-2 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                Copy
+                <span x-text="copied ? 'Copied!' : 'Copy'"></span>
               </button>
             </div>
           </div>
