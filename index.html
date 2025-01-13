@@ -421,13 +421,13 @@
               <input
                 type="text"
                 id="cloneCommand"
-                value="git clone https://github.com/anas1412/MetaStack.git"
+                value="npx degit anas1412/MetaStack my-new-project"
                 readonly
                 class="bg-transparent text-text flex-grow outline-none"
               />
               <button
                 @click="
-                  navigator.clipboard.writeText('git clone https://github.com/anas1412/MetaStack.git');
+                  navigator.clipboard.writeText('npx degit anas1412/MetaStack my-new-project');
                   copied = true;
                   setTimeout(() => copied = false, 3000);
                 "
