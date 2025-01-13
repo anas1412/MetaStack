@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaStack</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#80B5FA",
+              secondary: "#2E363A",
+              accent: "#FFD700",
+              background: "#1F2937",
+              text: "#F9FAFB",
+              card: "#374151",
+            },
+            boxShadow: {
+              glow: "0 0 15px rgba(128, 181, 250, 0.5)",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideInLeft: {
+                "0%": { transform: "translateX(-20px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              slideInRight: {
+                "0%": { transform: "translateX(20px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              bounce: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 1s ease-out",
+              slideInLeft: "slideInLeft 0.5s ease-out",
+              slideInRight: "slideInRight 0.5s ease-out",
+              bounce: "bounce 2s infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Custom CSS -->
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      #content {
+        flex: 1;
+      }
+    </style>
+    <!-- AlpineJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+  </head>
+  <body class="bg-background text-text font-sans">
+    <div id="root">
+      <!-- Hero Section -->
+      <section
+        class="relative h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary to-background"
+      >
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+          <!-- Logo with Animation -->
+          <div class="flex justify-center mb-8 animate-bounce">
+            <img
+              src="public/images/logo.png"
+              alt="Logo"
+              class="w-32 h-32 transition-transform hover:scale-105"
+            />
+          </div>
+
+          <!-- Headings -->
+          <h1 class="text-6xl font-bold text-primary mb-6 animate-fadeIn">
+            Welcome to the <span class="text-primary">MetaStack</span>
+          </h1>
+          <div class="group">
+            <h2
+              class="text-3xl font-semibold text-secondary mb-4 animate-slideInLeft relative inline-block group-hover:text-primary transition-colors duration-300"
+            >
+              <span class="relative">
+                Minimal. Fast. Zen.
+                <!-- Custom Underline -->
+                <span
+                  class="absolute left-0 bottom-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                ></span>
+              </span>
+            </h2>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xl text-text mb-8 animate-slideInRight">
+            Create prototypes faster with MetaStack, featuring MongoDB,
+            ExpressJS, TailwindCSS, and AlpineJS—your toolkit for modern web app
+            development.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex justify-center space-x-4 animate-fadeIn">
+            <a
+              href="#cta-section"
+              x-data
+              x-on:click.prevent="document.getElementById('cta-section').scrollIntoView({ behavior: 'smooth' })"
+              class="bg-primary text-secondary px-6 py-3 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >Get Started</a
+            >
+            <a
+              href="https://github.com/anas1412/"
+              x-data
+              x-on:click.prevent="window.open('https://github.com/anas1412/', '_blank')"
+              class="bg-transparent border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Why MetaStack Section -->
+      <section class="container mx-auto px-8 py-16">
+        <h2
+          class="text-4xl font-bold text-primary text-center mb-12 animate-fadeIn"
+        >
+          Why MetaStack?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- MVP Prototyping -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              MVP Prototyping
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              MetaStack is built for <strong>rapid prototyping</strong>. Whether
+              you're validating an idea or building a Minimum Viable Product
+              (MVP), MetaStack helps you go from concept to reality in record
+              time. No unnecessary complexity—just the tools you need to ship
+              fast.
+            </p>
+          </div>
+          <!-- HTML-Based Coding -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              HTML-Based Coding
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              With MetaStack, you write <strong>plain HTML</strong> enhanced by
+              TailwindCSS and AlpineJS. No need to learn complex frameworks or
+              templating engines. Just focus on building your app with familiar,
+              straightforward code.
+            </p>
+          </div>
+          <!-- Easier CSS -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              Easier CSS
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              Say goodbye to messy CSS files. MetaStack uses
+              <strong>TailwindCSS</strong>, a utility-first CSS framework that
+              lets you style directly in your HTML. It's fast, intuitive, and
+              keeps your codebase clean and maintainable.
+            </p>
+          </div>
+          <!-- Easier Backend -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              Easier Backend
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              MetaStack simplifies backend development with
+              <strong>ExpressJS</strong> and <strong>MongoDB</strong>. No
+              bloated frameworks or unnecessary abstractions—just a lightweight,
+              powerful backend that gets the job done.
+            </p>
+          </div>
+          <!-- Zen Minimalism -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              Zen Minimalism
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              MetaStack embraces <strong>minimalism</strong>. No wasted time on
+              over-engineering or unnecessary features. It's designed to help
+              you focus on what matters: building your product.
+            </p>
+          </div>
+          <!-- MicroSaaS & Single-Page Functionality -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4 text-center">
+              MicroSaaS & Single-Page Apps
+            </h3>
+            <p class="text-text mb-6 break-words flex-grow">
+              MetaStack is perfect for <strong>MicroSaaS</strong> projects and
+              single-page applications. Build one feature at a time, iterate
+              quickly, and scale effortlessly with a
+              <strong>cloud-native architecture</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="container mx-auto px-8 py-16">
+        <h2
+          class="text-4xl font-bold text-primary text-center mb-12 animate-fadeIn"
+        >
+          What Developers Are Saying
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <p class="text-text mb-6 italic">
+              "MetaStack is a game-changer for prototyping. I built my MVP in
+              just a weekend!"
+            </p>
+            <p class="text-primary font-semibold">
+              — John Doe, Full-Stack Developer
+            </p>
+          </div>
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <p class="text-text mb-6 italic">
+              "The simplicity of MetaStack is unmatched. It’s perfect for
+              MicroSaaS projects."
+            </p>
+            <p class="text-primary font-semibold">— Jane Smith, Indie Hacker</p>
+          </div>
+          <!-- Testimonial 3 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <p class="text-text mb-6 italic">
+              "TailwindCSS and AlpineJS make frontend development a breeze.
+              Highly recommend!"
+            </p>
+            <p class="text-primary font-semibold">
+              — Alex Johnson, Frontend Engineer
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Demo Section -->
+      <section class="container mx-auto px-8 py-16">
+        <h2
+          class="text-4xl font-bold text-primary text-center mb-12 animate-fadeIn"
+        >
+          See MetaStack in Action
+        </h2>
+        <div class="flex justify-center">
+          <div
+            class="w-full max-w-4xl bg-card rounded-lg shadow-lg overflow-hidden"
+          >
+            <iframe
+              class="w-full h-64 md:h-96"
+              src="https://www.youtube.com/embed/your-video-id"
+              title="MetaStack Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="container mx-auto px-8 py-16">
+        <h2
+          class="text-4xl font-bold text-primary text-center mb-12 animate-fadeIn"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- FAQ 1 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4">
+              What is MetaStack?
+            </h3>
+            <p class="text-text">
+              MetaStack is a modern web development boilerplate designed for
+              rapid prototyping and building MVPs. It combines MongoDB,
+              ExpressJS, TailwindCSS, and AlpineJS for a seamless development
+              experience.
+            </p>
+          </div>
+          <!-- FAQ 2 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4">
+              Is MetaStack free?
+            </h3>
+            <p class="text-text">
+              Yes, MetaStack is completely free and open-source. You can use it
+              for personal or commercial projects.
+            </p>
+          </div>
+          <!-- FAQ 3 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4">
+              Can I use MetaStack for production?
+            </h3>
+            <p class="text-text">
+              Absolutely! MetaStack is lightweight and production-ready. It’s
+              perfect for building MicroSaaS apps and single-page applications.
+            </p>
+          </div>
+          <!-- FAQ 4 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <h3 class="text-2xl font-semibold text-primary mb-4">
+              How do I get started?
+            </h3>
+            <p class="text-text">
+              Simply clone the repository, install dependencies, and start
+              coding! Check out the
+              <a href="#cta-section" class="text-primary hover:underline"
+                >CTA Section</a
+              >
+              for detailed instructions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section
+        id="cta-section"
+        class="bg-gradient-to-br from-background via-secondary to-background py-16"
+      >
+        <div class="container mx-auto px-8 text-center">
+          <h2 class="text-4xl font-bold text-primary mb-6 animate-fadeIn">
+            Ready to Build Something Amazing?
+          </h2>
+          <p class="text-xl text-text mb-8 animate-slideInRight">
+            Start your next project with MetaStack today. It’s fast, simple, and
+            designed for developers who want to ship quickly.
+          </p>
+          <div class="flex justify-center items-center space-x-4">
+            <div
+              class="bg-card p-4 rounded-lg shadow-lg flex items-center w-full max-w-lg"
+            >
+              <input
+                type="text"
+                id="cloneCommand"
+                value="git clone https://github.com/anas1412/MetaStack.git"
+                readonly
+                class="bg-transparent text-text flex-grow outline-none"
+              />
+              <button
+                onclick="copyCloneCommand()"
+                class="bg-primary text-secondary px-4 py-2 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Section -->
+      <section class="container mx-auto px-8 py-16">
+        <h2
+          class="text-4xl font-bold text-primary text-center mb-12 animate-fadeIn"
+        >
+          Join the Community
+        </h2>
+        <p class="text-xl text-text text-center mb-8 animate-slideInRight">
+          Have questions or want to collaborate? Join our growing community of
+          developers!
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="https://discord.gg/your-invite-link"
+            target="_blank"
+            class="bg-primary text-secondary px-6 py-3 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Join Discord
+          </a>
+          <a
+            href="https://github.com/anas1412/metastack/discussions"
+            target="_blank"
+            class="bg-transparent border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            GitHub Discussions
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="text-center py-8 bg-secondary/80 backdrop-blur-md shadow-lg animate-fadeIn"
+      >
+        <p class="text-text">
+          Made with ❤️ by
+          <strong class="text-primary">
+            <a
+              href="https://github.com/anas1412/"
+              target="_blank"
+              class="text-primary hover:underline"
+              >Anas1412</a
+            ></strong
+          >
+          | &copy; <span id="currentYear"></span> All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Script to Display Current Year -->
+    <script>
+      // Automatically update the year in the footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Copy clone command to clipboard
+      function copyCloneCommand() {
+        const cloneCommand = document.getElementById("cloneCommand");
+        cloneCommand.select();
+        document.execCommand("copy");
+        alert("Copied to clipboard: " + cloneCommand.value);
+      }
+    </script>
+  </body>
+</html>
