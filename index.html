@@ -8,6 +8,14 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Custom Tailwind Configuration -->
     <script>
       tailwind.config = {
@@ -122,15 +130,17 @@
               x-data
               x-on:click.prevent="document.getElementById('cta-section').scrollIntoView({ behavior: 'smooth' })"
               class="bg-primary text-secondary px-6 py-3 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >Get Started</a
             >
+              <i class="fas fa-rocket mr-2"></i> Get Started
+            </a>
             <a
               href="https://github.com/anas1412/MetaStack.git"
               x-data
               x-on:click.prevent="window.open('https://github.com/anas1412/MetaStack.git', '_blank')"
               class="bg-transparent border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >Learn More</a
             >
+              <i class="fab fa-github mr-2"></i> Learn More
+            </a>
           </div>
         </div>
       </section>
@@ -243,8 +253,10 @@
             class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
           >
             <p class="text-text mb-6 italic">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              <i class="fas fa-quote-left text-primary mr-2"></i>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <i class="fas fa-quote-right text-primary ml-2"></i>
             </p>
             <p class="text-primary font-semibold">
               — John Doe, Full-Stack Developer
@@ -255,8 +267,10 @@
             class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
           >
             <p class="text-text mb-6 italic">
-              "Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat."
+              <i class="fas fa-quote-left text-primary mr-2"></i>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+              <i class="fas fa-quote-right text-primary ml-2"></i>
             </p>
             <p class="text-primary font-semibold">— Jane Smith, Indie Hacker</p>
           </div>
@@ -265,11 +279,27 @@
             class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInLeft"
           >
             <p class="text-text mb-6 italic">
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur."
+              <i class="fas fa-quote-left text-primary mr-2"></i>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <i class="fas fa-quote-right text-primary ml-2"></i>
             </p>
             <p class="text-primary font-semibold">
               — Alex Johnson, Frontend Engineer
+            </p>
+          </div>
+          <!-- Testimonial 4 -->
+          <div
+            class="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col animate-slideInRight"
+          >
+            <p class="text-text mb-6 italic">
+              <i class="fas fa-quote-left text-primary mr-2"></i>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+              <i class="fas fa-quote-right text-primary ml-2"></i>
+            </p>
+            <p class="text-primary font-semibold">
+              — Sarah Lee, Software Engineering Student
             </p>
           </div>
         </div>
@@ -390,12 +420,13 @@
               />
               <button
                 @click="
-          navigator.clipboard.writeText('git clone https://github.com/anas1412/MetaStack.git');
-          copied = true;
-          setTimeout(() => copied = false, 3000);
-        "
+                  navigator.clipboard.writeText('git clone https://github.com/anas1412/MetaStack.git');
+                  copied = true;
+                  setTimeout(() => copied = false, 3000);
+                "
                 class="bg-primary text-secondary px-4 py-2 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-md hover:shadow-lg"
               >
+                <i class="fas fa-copy mr-2"></i>
                 <span x-text="copied ? 'Copied!' : 'Copy'"></span>
               </button>
             </div>
@@ -420,7 +451,7 @@
             target="_blank"
             class="bg-primary text-secondary px-6 py-3 rounded-lg hover:bg-accent hover:text-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Join Discord
+            <i class="fab fa-discord mr-2"></i> Join Discord
           </a>
         </div>
       </section>
@@ -430,7 +461,7 @@
         class="text-center py-8 bg-secondary/80 backdrop-blur-md shadow-lg animate-fadeIn"
       >
         <p class="text-text">
-          Made with ❤️ by
+          Made with <i class="fas fa-heart text-primary"></i> by
           <strong class="text-primary">
             <a
               href="https://github.com/anas1412/"
@@ -449,14 +480,6 @@
       // Automatically update the year in the footer
       document.getElementById("currentYear").textContent =
         new Date().getFullYear();
-
-      // Copy clone command to clipboard
-      function copyCloneCommand() {
-        const cloneCommand = document.getElementById("cloneCommand");
-        cloneCommand.select();
-        document.execCommand("copy");
-        alert("Copied to clipboard: " + cloneCommand.value);
-      }
     </script>
   </body>
 </html>
