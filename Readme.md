@@ -27,12 +27,42 @@ Follow these steps to set up and run the project locally.
 
 ### Installation
 
-1.  Clone the repository to your local machine.
+1.  Use this command to initiate a new project using the template.
+
+```bash
+npx degit anas1412/MetaStack my-new-project
+```
+
 2.  Navigate to the project directory.
+
+```bash
+cd my-new-project
+```
+
 3.  Install the required dependencies using npm.
-4.  Create a .env file in the root directory and add your MongoDB connection string.
+
+```bash
+npm install
+```
+
+4.  Copy .env.example and name it .env file in the root directory and add your MongoDB connection string.
+
+```bash
+cp .env.example .env
+echo "MONGODB_URI=your-mongodb-connection-string" >> .env
+```
+
 5.  Start the development server using the provided npm script.
+
+```bash
+npm run dev
+```
+
 6.  Open your browser and visit the localhost URL to view the project.
+
+```bash
+http://localhost:5000
+```
 
 ## Technologies Used 🛠️
 
